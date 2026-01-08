@@ -1,7 +1,5 @@
-import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { OnboardingContainer } from '@/components/common/OnboardingContainer';
-import { Button } from '@/components/common/Button';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity, ScrollView } from 'react-native';
 import { colors, typography, spacing, borderRadius } from '@/theme';
 
 interface FinalPaywallScreenProps {
@@ -11,10 +9,10 @@ interface FinalPaywallScreenProps {
 export const FinalPaywallScreen: React.FC<FinalPaywallScreenProps> = ({
   navigation,
 }) => {
-  const progress = 29 / 29;
+  const [selectedPlan, setSelectedPlan] = useState<'monthly' | 'yearly'>('yearly');
 
   const handleContinue = () => {
-    navigation.navigate('SpinWheel');
+    navigation.navigate('MainTabs');
   };
 
   const handleRestore = () => {
@@ -22,198 +20,336 @@ export const FinalPaywallScreen: React.FC<FinalPaywallScreenProps> = ({
   };
 
   return (
-    <OnboardingContainer progress={progress} showProgress={false}>
-      <View style={styles.content}>
-        <Text style={styles.title}>Unlock Caloric to reach your goals faster</Text>
-        <Text style={styles.subtitle}>
-          Join thousands who've transformed their health with premium features
+    <SafeAreaView style={styles.container}>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Header */}
+        <View style={styles.header}>
+          <TouchableOpacity
+            style={styles.backButton}
+            onPress={() => navigation.goBack()}
+          >
+            <Text style={styles.backIcon}>‹</Text>
+          </TouchableOpacity>
+          <TouchableOpacity onPress={handleRestore}>
+            <Text style={styles.restoreText}>Restore</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Title */}
+        <Text style={styles.title}>Start your 3-day FREE trial to continue.</Text>
+
+        {/* Timeline */}
+        <View style={styles.timeline}>
+          {/* Today */}
+          <View style={styles.timelineItem}>
+            <View style={styles.iconContainer}>
+              <View style={[styles.iconCircle, styles.iconCircleActive]}>
+                <Text style={styles.iconEmoji}>🔓</Text>
+              </View>
+              <View style={[styles.timelineLine, styles.timelineLineActive]} />
+            </View>
+            <View style={styles.timelineContent}>
+              <Text style={styles.timelineTitle}>Today</Text>
+              <Text style={styles.timelineSubtitle}>
+                Unlock all the app's features like AI calorie scanning and more.
+              </Text>
+            </View>
+          </View>
+
+          {/* In 2 Days */}
+          <View style={styles.timelineItem}>
+            <View style={styles.iconContainer}>
+              <View style={[styles.iconCircle, styles.iconCircleActive]}>
+                <Text style={styles.iconEmoji}>🔔</Text>
+              </View>
+              <View style={[styles.timelineLine, styles.timelineLineActive]} />
+            </View>
+            <View style={styles.timelineContent}>
+              <Text style={styles.timelineTitle}>In 2 Days - Reminder</Text>
+              <Text style={styles.timelineSubtitle}>
+                We'll send you a reminder that your trial is ending soon.
+              </Text>
+            </View>
+          </View>
+
+          {/* In 3 Days */}
+          <View style={styles.timelineItem}>
+            <View style={styles.iconContainer}>
+              <View style={[styles.iconCircle, styles.iconCircleInactive]}>
+                <Text style={styles.iconEmoji}>👑</Text>
+              </View>
+            </View>
+            <View style={styles.timelineContent}>
+              <Text style={styles.timelineTitle}>In 3 Days - Billing Starts</Text>
+              <Text style={styles.timelineSubtitle}>
+                You'll be charged on Jan 8, 2026 unless you cancel anytime before.
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        {/* Pricing Plans */}
+        <View style={styles.pricingContainer}>
+          {/* Monthly Plan */}
+          <TouchableOpacity
+            style={[
+              styles.pricingCard,
+              selectedPlan === 'monthly' && styles.pricingCardSelected,
+            ]}
+            onPress={() => setSelectedPlan('monthly')}
+          >
+            <Text style={styles.planName}>Monthly</Text>
+            <Text style={styles.planPrice}>$9.99 /mo</Text>
+            <View style={[
+              styles.radioCircle,
+              selectedPlan === 'monthly' && styles.radioCircleSelected,
+            ]}>
+              {selectedPlan === 'monthly' && <View style={styles.radioCircleInner} />}
+            </View>
+          </TouchableOpacity>
+
+          {/* Yearly Plan */}
+          <TouchableOpacity
+            style={[
+              styles.pricingCard,
+              selectedPlan === 'yearly' && styles.pricingCardSelected,
+            ]}
+            onPress={() => setSelectedPlan('yearly')}
+          >
+            <View style={styles.freeBadge}>
+              <Text style={styles.freeBadgeText}>3 DAYS FREE</Text>
+            </View>
+            <Text style={styles.planName}>Yearly</Text>
+            <Text style={styles.planPrice}>$2.49/mo</Text>
+            <View style={[
+              styles.radioCircle,
+              selectedPlan === 'yearly' && styles.radioCircleSelected,
+            ]}>
+              {selectedPlan === 'yearly' && (
+                <Text style={styles.checkmark}>✓</Text>
+              )}
+            </View>
+          </TouchableOpacity>
+        </View>
+
+        {/* No Payment Due Now */}
+        <View style={styles.noPaymentRow}>
+          <Text style={styles.checkmarkSmall}>✓</Text>
+          <Text style={styles.noPaymentText}>No Payment Due Now</Text>
+        </View>
+
+        {/* CTA Button */}
+        <TouchableOpacity style={styles.ctaButton} onPress={handleContinue}>
+          <Text style={styles.ctaButtonText}>Start My 3-Day Free Trial</Text>
+        </TouchableOpacity>
+
+        {/* Footer Text */}
+        <Text style={styles.footerText}>
+          3 days free, then $29.99 per year ($2.49/mo)
         </Text>
-
-        <View style={styles.phoneMockup}>
-          <View style={styles.mockupCard}>
-            <Text style={styles.mockupEmoji}>📱</Text>
-            <Text style={styles.mockupText}>AI Food Scanner</Text>
-          </View>
-        </View>
-
-        <View style={styles.featuresBox}>
-          <View style={styles.featureRow}>
-            <Text style={styles.checkmark}>✓</Text>
-            <Text style={styles.featureText}>Unlimited AI food scanning</Text>
-          </View>
-          <View style={styles.featureRow}>
-            <Text style={styles.checkmark}>✓</Text>
-            <Text style={styles.featureText}>Personalized meal plans</Text>
-          </View>
-          <View style={styles.featureRow}>
-            <Text style={styles.checkmark}>✓</Text>
-            <Text style={styles.featureText}>Advanced progress analytics</Text>
-          </View>
-          <View style={styles.featureRow}>
-            <Text style={styles.checkmark}>✓</Text>
-            <Text style={styles.featureText}>Custom macro targets</Text>
-          </View>
-          <View style={styles.featureRow}>
-            <Text style={styles.checkmark}>✓</Text>
-            <Text style={styles.featureText}>No ads, ever</Text>
-          </View>
-        </View>
-
-        <View style={styles.pricingBox}>
-          <View style={styles.pricingBadge}>
-            <Text style={styles.badgeText}>BEST VALUE</Text>
-          </View>
-          <Text style={styles.pricingTitle}>Annual Plan</Text>
-          <View style={styles.pricingRow}>
-            <Text style={styles.oldPrice}>$79.99</Text>
-            <Text style={styles.newPrice}>$39.99/year</Text>
-          </View>
-          <Text style={styles.savingsText}>Save 50% • Just $3.33/month</Text>
-        </View>
-
-        <Text style={styles.trial}>Start 7-day free trial, cancel anytime</Text>
-      </View>
-
-      <View style={styles.bottom}>
-        <Button title="Continue" onPress={handleContinue} />
-        <Button
-          title="Restore Purchases"
-          onPress={handleRestore}
-          variant="outline"
-          style={styles.restoreButton}
-        />
-        <Text style={styles.disclaimer}>
-          By continuing, you agree to our Terms of Service and Privacy Policy. Subscription automatically renews unless cancelled.
-        </Text>
-      </View>
-    </OnboardingContainer>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  content: {
+  container: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  scrollView: {
     flex: 1,
   },
-  title: {
-    fontSize: typography.fontSize.xxl,
-    fontWeight: typography.fontWeight.bold,
-    color: colors.text,
-    textAlign: 'center',
-    marginBottom: spacing.md,
-    lineHeight: typography.fontSize.xxl * typography.lineHeight.normal,
+  scrollContent: {
+    paddingHorizontal: spacing.lg,
+    paddingBottom: 40,
   },
-  subtitle: {
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.lg,
+  },
+  backButton: {
+    width: 40,
+    height: 40,
+    justifyContent: 'center',
+  },
+  backIcon: {
+    fontSize: 36,
+    color: colors.text,
+  },
+  restoreText: {
     fontSize: typography.fontSize.md,
     color: colors.textSecondary,
-    textAlign: 'center',
-    lineHeight: typography.fontSize.md * typography.lineHeight.normal,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.text,
+    marginBottom: spacing.xl,
+    paddingHorizontal: spacing.xs,
+  },
+  timeline: {
     marginBottom: spacing.xl,
   },
-  phoneMockup: {
-    alignItems: 'center',
-    marginVertical: spacing.xl,
+  timelineItem: {
+    flexDirection: 'row',
+    marginBottom: spacing.xs,
   },
-  mockupCard: {
-    width: 200,
-    height: 120,
-    backgroundColor: colors.backgroundGray,
-    borderRadius: borderRadius.lg,
+  iconContainer: {
+    alignItems: 'center',
+    marginRight: spacing.md,
+  },
+  iconCircle: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  mockupEmoji: {
-    fontSize: 48,
-    marginBottom: spacing.sm,
+  iconCircleActive: {
+    backgroundColor: '#FF9500',
   },
-  mockupText: {
-    fontSize: typography.fontSize.md,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.text,
+  iconCircleInactive: {
+    backgroundColor: '#8E8E93',
   },
-  featuresBox: {
-    backgroundColor: colors.backgroundGray,
-    borderRadius: borderRadius.md,
-    padding: spacing.lg,
-    marginBottom: spacing.xl,
+  iconEmoji: {
+    fontSize: 24,
   },
-  featureRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: spacing.md,
+  timelineLine: {
+    width: 4,
+    flex: 1,
+    minHeight: 40,
   },
-  checkmark: {
+  timelineLineActive: {
+    backgroundColor: '#FF9500',
+  },
+  timelineContent: {
+    flex: 1,
+    paddingTop: spacing.xs,
+  },
+  timelineTitle: {
     fontSize: typography.fontSize.lg,
-    color: colors.text,
-    marginRight: spacing.md,
-  },
-  featureText: {
-    fontSize: typography.fontSize.md,
-    color: colors.text,
-    fontWeight: typography.fontWeight.medium,
-  },
-  pricingBox: {
-    backgroundColor: colors.text,
-    borderRadius: borderRadius.md,
-    padding: spacing.lg,
-    alignItems: 'center',
-    marginBottom: spacing.md,
-  },
-  pricingBadge: {
-    backgroundColor: colors.textWhite,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.xs,
-    borderRadius: borderRadius.sm,
-    marginBottom: spacing.md,
-  },
-  badgeText: {
-    fontSize: typography.fontSize.xs,
     fontWeight: typography.fontWeight.bold,
     color: colors.text,
-  },
-  pricingTitle: {
-    fontSize: typography.fontSize.lg,
-    fontWeight: typography.fontWeight.semibold,
-    color: colors.textWhite,
-    marginBottom: spacing.sm,
-  },
-  pricingRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.md,
     marginBottom: spacing.xs,
   },
-  oldPrice: {
-    fontSize: typography.fontSize.md,
-    color: colors.textWhite,
-    textDecorationLine: 'line-through',
-    opacity: 0.7,
+  timelineSubtitle: {
+    fontSize: typography.fontSize.sm,
+    color: colors.textSecondary,
+    lineHeight: 20,
   },
-  newPrice: {
-    fontSize: typography.fontSize.xl,
+  pricingContainer: {
+    flexDirection: 'row',
+    gap: spacing.md,
+    marginBottom: spacing.lg,
+  },
+  pricingCard: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    borderWidth: 2,
+    borderColor: '#E5E5EA',
+    borderRadius: borderRadius.lg,
+    padding: spacing.lg,
+    position: 'relative',
+    minHeight: 120,
+  },
+  pricingCardSelected: {
+    borderColor: '#000000',
+    borderWidth: 2,
+  },
+  freeBadge: {
+    position: 'absolute',
+    top: -12,
+    left: 0,
+    right: 0,
+    alignItems: 'center',
+  },
+  freeBadgeText: {
+    backgroundColor: '#000000',
+    color: '#FFFFFF',
+    fontSize: 11,
     fontWeight: typography.fontWeight.bold,
-    color: colors.textWhite,
+    paddingHorizontal: spacing.md,
+    paddingVertical: 4,
+    borderRadius: 12,
+    overflow: 'hidden',
   },
-  savingsText: {
-    fontSize: typography.fontSize.sm,
-    color: colors.textWhite,
-    opacity: 0.9,
+  planName: {
+    fontSize: typography.fontSize.lg,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.text,
+    marginBottom: spacing.xs,
   },
-  trial: {
+  planPrice: {
+    fontSize: 22,
+    fontWeight: typography.fontWeight.bold,
+    color: colors.text,
+  },
+  radioCircle: {
+    position: 'absolute',
+    top: spacing.lg,
+    right: spacing.lg,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    borderWidth: 2,
+    borderColor: '#E5E5EA',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  radioCircleSelected: {
+    backgroundColor: '#000000',
+    borderColor: '#000000',
+  },
+  radioCircleInner: {
+    width: 12,
+    height: 12,
+    borderRadius: 6,
+    backgroundColor: '#FFFFFF',
+  },
+  checkmark: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: typography.fontWeight.bold,
+  },
+  noPaymentRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: spacing.lg,
+  },
+  checkmarkSmall: {
+    fontSize: 18,
+    color: colors.text,
+    marginRight: spacing.xs,
+  },
+  noPaymentText: {
+    fontSize: typography.fontSize.md,
+    fontWeight: typography.fontWeight.semibold,
+    color: colors.text,
+  },
+  ctaButton: {
+    backgroundColor: '#000000',
+    borderRadius: borderRadius.md,
+    paddingVertical: 18,
+    alignItems: 'center',
+    marginBottom: spacing.md,
+  },
+  ctaButtonText: {
+    fontSize: typography.fontSize.lg,
+    fontWeight: typography.fontWeight.semibold,
+    color: '#FFFFFF',
+  },
+  footerText: {
     fontSize: typography.fontSize.sm,
     color: colors.textSecondary,
     textAlign: 'center',
-  },
-  bottom: {
-    paddingBottom: spacing.lg,
-  },
-  restoreButton: {
-    marginTop: spacing.md,
-  },
-  disclaimer: {
-    fontSize: typography.fontSize.xs,
-    color: colors.textSecondary,
-    textAlign: 'center',
-    lineHeight: typography.fontSize.xs * typography.lineHeight.normal,
-    marginTop: spacing.md,
   },
 });
