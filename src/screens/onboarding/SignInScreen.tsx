@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { OnboardingContainer } from '@/components/common/OnboardingContainer';
 import { Button } from '@/components/common/Button';
 import { colors, typography, spacing, borderRadius } from '@/theme';
@@ -14,16 +14,17 @@ export const SignInScreen: React.FC<SignInScreenProps> = ({
   const progress = 28 / 29;
 
   const handleAppleSignIn = () => {
-    // Handle Apple Sign In
-    navigation.navigate('FinalPaywall');
+    // Handle Apple Sign In - Navigate directly to Home
+    navigation.navigate('Home');
   };
 
   const handleGoogleSignIn = () => {
-    // Handle Google Sign In
-    navigation.navigate('FinalPaywall');
+    // Handle Google Sign In - Navigate directly to Home
+    navigation.navigate('Home');
   };
 
   const handleSkip = () => {
+    // Skip and go to paywall (only when coming from onboarding flow)
     navigation.navigate('FinalPaywall');
   };
 
@@ -70,17 +71,16 @@ export const SignInScreen: React.FC<SignInScreenProps> = ({
       </View>
 
       <View style={styles.bottom}>
-        <Button
-          title="Sign in with Apple"
-          onPress={handleAppleSignIn}
-          style={styles.appleButton}
-        />
-        <Button
-          title="Sign in with Google"
-          onPress={handleGoogleSignIn}
-          variant="secondary"
-          style={styles.googleButton}
-        />
+        <TouchableOpacity style={styles.appleButton} onPress={handleAppleSignIn}>
+          <Text style={styles.appleIcon}></Text>
+          <Text style={styles.appleText}>Sign in with Apple</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.googleButton} onPress={handleGoogleSignIn}>
+          <Text style={styles.googleIcon}>G</Text>
+          <Text style={styles.googleText}>Sign in with Google</Text>
+        </TouchableOpacity>
+
         <Button
           title="Continue without account"
           onPress={handleSkip}
@@ -149,10 +149,45 @@ const styles = StyleSheet.create({
     paddingBottom: spacing.lg,
   },
   appleButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#000000',
+    height: 56,
+    borderRadius: borderRadius.md,
     marginBottom: spacing.md,
   },
+  appleIcon: {
+    fontSize: 20,
+    color: '#FFFFFF',
+    marginRight: spacing.sm,
+  },
+  appleText: {
+    fontSize: typography.fontSize.md,
+    fontWeight: typography.fontWeight.semibold,
+    color: '#FFFFFF',
+  },
   googleButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
+    borderWidth: 1,
+    borderColor: '#DDDDDD',
+    height: 56,
+    borderRadius: borderRadius.md,
     marginBottom: spacing.md,
+  },
+  googleIcon: {
+    fontSize: 20,
+    color: '#4285F4',
+    fontWeight: typography.fontWeight.bold,
+    marginRight: spacing.sm,
+  },
+  googleText: {
+    fontSize: typography.fontSize.md,
+    fontWeight: typography.fontWeight.semibold,
+    color: '#000000',
   },
   skipButton: {
     marginTop: spacing.sm,

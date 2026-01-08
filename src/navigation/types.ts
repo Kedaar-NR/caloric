@@ -33,6 +33,7 @@ export type RootStackParamList = {
   FinalPaywall: undefined;
   SpinWheel: undefined;
   DiscountedPaywall: { discount?: string };
+  Home: undefined;
 };
 
 export type NavigationProp = StackNavigationProp<RootStackParamList>;

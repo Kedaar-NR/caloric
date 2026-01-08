@@ -29,11 +29,12 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
           title="Get Started"
           onPress={() => navigation.navigate('Welcome')}
         />
-        <TouchableOpacity style={styles.signInButton}>
-          <Text style={styles.signInText}>
-            Already have an account? <Text style={styles.signInLink}>Sign In</Text>
-          </Text>
-        </TouchableOpacity>
+        <Button
+          title="Sign In"
+          onPress={() => navigation.navigate('SignIn')}
+          variant="outline"
+          style={styles.signInButtonStyle}
+        />
       </View>
 
       {/* Home indicator space */}
@@ -88,17 +89,8 @@ const styles = StyleSheet.create({
   bottom: {
     paddingBottom: spacing.lg,
   },
-  signInButton: {
+  signInButtonStyle: {
     marginTop: spacing.md,
-    alignItems: 'center',
-  },
-  signInText: {
-    fontSize: typography.fontSize.sm,
-    color: '#666666',
-  },
-  signInLink: {
-    color: '#000000',
-    fontWeight: typography.fontWeight.semibold,
   },
   homeIndicator: {
     height: spacing.md,

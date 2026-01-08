@@ -39,6 +39,8 @@ import {
   DiscountedPaywallScreen,
 } from '@/screens/onboarding';
 
+import { HomeScreen } from '@/screens/main/HomeScreen';
+
 const Stack = createStackNavigator<RootStackParamList>();
 
 export const AppNavigator: React.FC = () => {
@@ -84,6 +86,7 @@ export const AppNavigator: React.FC = () => {
         <Stack.Screen name="FinalPaywall" component={FinalPaywallScreen} />
         <Stack.Screen name="SpinWheel" component={SpinWheelScreen} />
         <Stack.Screen name="DiscountedPaywall" component={DiscountedPaywallScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
