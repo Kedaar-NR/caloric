@@ -1,0 +1,37 @@
+import { StackNavigationProp } from '@react-navigation/stack';
+
+export type RootStackParamList = {
+  Splash: undefined;
+  Welcome: undefined;
+  GenderSelection: undefined;
+  WorkoutFrequency: undefined;
+  ReferralSource: undefined;
+  PreviousApps: undefined;
+  LongTermResults: undefined;
+  HeightWeight: undefined;
+  BirthDate: undefined;
+  GoalSelection: undefined;
+  DesiredWeight: undefined;
+  GoalPace: undefined;
+  ComparisonStats: undefined;
+  Obstacles: undefined;
+  DietType: undefined;
+  Accomplishments: undefined;
+  PotentialGraph: undefined;
+  ThankYou: undefined;
+  AppleHealth: undefined;
+  CaloriesBurned: undefined;
+  RolloverCalories: undefined;
+  AppRating: undefined;
+  Notifications: undefined;
+  ReferralCode: undefined;
+  PlanGeneration: undefined;
+  LoadingProgress: undefined;
+  PlanReady: undefined;
+  SignIn: undefined;
+  FinalPaywall: undefined;
+  SpinWheel: undefined;
+  DiscountedPaywall: { discount?: string };
+};
+
+export type NavigationProp = StackNavigationProp<RootStackParamList>;
