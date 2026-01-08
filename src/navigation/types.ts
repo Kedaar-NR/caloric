@@ -34,6 +34,7 @@ export type RootStackParamList = {
   SpinWheel: undefined;
   DiscountedPaywall: { discount?: string };
   Home: undefined;
+  MainTabs: undefined;
 };
 
 export type NavigationProp = StackNavigationProp<RootStackParamList>;

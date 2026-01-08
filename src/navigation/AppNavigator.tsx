@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { View, ActivityIndicator } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { RootStackParamList } from './types';
+import { useAuthStore } from '@/store/authStore';
 
 // Import all screens
 import {
@@ -40,14 +42,34 @@ import {
 } from '@/screens/onboarding';
 
 import { HomeScreen } from '@/screens/main/HomeScreen';
+import { MainTabNavigator } from './MainTabNavigator';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
 export const AppNavigator: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const { isAuthenticated, loadAuthState } = useAuthStore();
+
+  useEffect(() => {
+    const checkAuth = async () => {
+      await loadAuthState();
+      setIsLoading(false);
+    };
+    checkAuth();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#F0F8FF' }}>
+        <ActivityIndicator size="large" color="#000000" />
+      </View>
+    );
+  }
+
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Splash"
+        initialRouteName={isAuthenticated ? "MainTabs" : "Splash"}
         screenOptions={{
           headerShown: false,
           cardStyle: { backgroundColor: '#FFFFFF' },
@@ -87,6 +109,7 @@ export const AppNavigator: React.FC = () => {
         <Stack.Screen name="SpinWheel" component={SpinWheelScreen} />
         <Stack.Screen name="DiscountedPaywall" component={DiscountedPaywallScreen} />
         <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="MainTabs" component={MainTabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

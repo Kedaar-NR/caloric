@@ -30,7 +30,7 @@ export const colors = {
   borderDark: '#333333',
 
   // Progress
-  progressBg: '#F0F0F0',
+  progressBg: '#FFFFFF',
   progressFill: '#000000',
 
   // Special

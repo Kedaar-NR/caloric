@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { OnboardingContainer } from '@/components/common/OnboardingContainer';
 import { Button } from '@/components/common/Button';
 import { colors, typography, spacing, borderRadius } from '@/theme';
+import { useAuthStore } from '@/store/authStore';
 
 interface SignInScreenProps {
   navigation: any;
@@ -12,15 +13,18 @@ export const SignInScreen: React.FC<SignInScreenProps> = ({
   navigation,
 }) => {
   const progress = 28 / 29;
+  const setAuthenticated = useAuthStore((state) => state.setAuthenticated);
 
   const handleAppleSignIn = () => {
-    // Handle Apple Sign In - Navigate directly to Home
-    navigation.navigate('Home');
+    // Handle Apple Sign In - Save auth state and navigate
+    setAuthenticated(true, 'apple-user-id', 'user@apple.com', 'apple');
+    navigation.navigate('MainTabs');
   };
 
   const handleGoogleSignIn = () => {
-    // Handle Google Sign In - Navigate directly to Home
-    navigation.navigate('Home');
+    // Handle Google Sign In - Save auth state and navigate
+    setAuthenticated(true, 'google-user-id', 'user@gmail.com', 'google');
+    navigation.navigate('MainTabs');
   };
 
   const handleSkip = () => {
