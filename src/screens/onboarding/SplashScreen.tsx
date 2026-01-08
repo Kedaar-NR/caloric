@@ -58,19 +58,19 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xxxl,
   },
   logoIcon: {
-    width: 80,
-    height: 80,
-    borderRadius: 20,
+    width: 100,
+    height: 100,
+    borderRadius: 24,
     backgroundColor: colors.backgroundGray,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: spacing.md,
   },
   logoEmoji: {
-    fontSize: 48,
+    fontSize: 64,
   },
   logoText: {
-    fontSize: typography.fontSize.xxxl,
+    fontSize: 40,
     fontWeight: typography.fontWeight.bold,
     color: colors.text,
   },
@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.medium,
     color: colors.textSecondary,
     textAlign: 'center',
-    lineHeight: typography.fontSize.xl * typography.lineHeight.relaxed,
   },
   bottom: {
     paddingBottom: spacing.lg,
