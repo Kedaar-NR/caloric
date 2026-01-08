@@ -19,6 +19,7 @@ export type RootStackParamList = {
   Accomplishments: undefined;
   PotentialGraph: undefined;
   ThankYou: undefined;
+  MyFitnessPal: undefined;
   AppleHealth: undefined;
   CaloriesBurned: undefined;
   RolloverCalories: undefined;

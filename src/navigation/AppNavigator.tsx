@@ -23,6 +23,7 @@ import {
   AccomplishmentsScreen,
   PotentialGraphScreen,
   ThankYouScreen,
+  MyFitnessPalScreen,
   AppleHealthScreen,
   CaloriesBurnedScreen,
   RolloverCaloriesScreen,
@@ -69,6 +70,7 @@ export const AppNavigator: React.FC = () => {
         <Stack.Screen name="Accomplishments" component={AccomplishmentsScreen} />
         <Stack.Screen name="PotentialGraph" component={PotentialGraphScreen} />
         <Stack.Screen name="ThankYou" component={ThankYouScreen} />
+        <Stack.Screen name="MyFitnessPal" component={MyFitnessPalScreen} />
         <Stack.Screen name="AppleHealth" component={AppleHealthScreen} />
         <Stack.Screen name="CaloriesBurned" component={CaloriesBurnedScreen} />
         <Stack.Screen name="RolloverCalories" component={RolloverCaloriesScreen} />

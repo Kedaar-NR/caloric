@@ -17,6 +17,7 @@ export { DietTypeScreen } from './DietTypeScreen';
 export { AccomplishmentsScreen } from './AccomplishmentsScreen';
 export { PotentialGraphScreen } from './PotentialGraphScreen';
 export { ThankYouScreen } from './ThankYouScreen';
+export { MyFitnessPalScreen } from './MyFitnessPalScreen';
 export { AppleHealthScreen } from './AppleHealthScreen';
 export { CaloriesBurnedScreen } from './CaloriesBurnedScreen';
 export { RolloverCaloriesScreen } from './RolloverCaloriesScreen';

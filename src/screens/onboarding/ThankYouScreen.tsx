@@ -18,7 +18,7 @@ export const ThankYouScreen: React.FC<ThankYouScreenProps> = ({
 
   const handleContinue = () => {
     setAcceptedPrivacy(true);
-    navigation.navigate('AppleHealth');
+    navigation.navigate('MyFitnessPal');
   };
 
   return (
