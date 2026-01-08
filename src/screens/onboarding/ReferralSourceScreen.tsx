@@ -29,6 +29,15 @@ export const ReferralSourceScreen: React.FC<ReferralSourceScreenProps> = ({
 
   const progress = 5 / 29;
 
+  const handleSelect = (source: string) => {
+    setSelected(source);
+    setReferralSource(source);
+    // Auto-advance after selection
+    setTimeout(() => {
+      navigation.navigate('PreviousApps');
+    }, 300);
+  };
+
   const handleContinue = () => {
     if (selected) {
       setReferralSource(selected);
@@ -51,7 +60,7 @@ export const ReferralSourceScreen: React.FC<ReferralSourceScreenProps> = ({
               key={source}
               title={source}
               selected={selected === source}
-              onPress={() => setSelected(source)}
+              onPress={() => handleSelect(source)}
             />
           ))}
         </View>
