@@ -20,7 +20,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
         </View>
 
         {/* Tagline */}
-        <Text style={styles.tagline}>Calorie tracking{'\n'}made easy</Text>
+        <Text style={styles.tagline}>Calorie tracking made easy</Text>
       </View>
 
       {/* Bottom section */}
@@ -45,7 +45,7 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: '#F0F8FF',
     paddingHorizontal: spacing.lg,
   },
   content: {
@@ -58,26 +58,31 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xxxl,
   },
   logoIcon: {
-    width: 100,
-    height: 100,
-    borderRadius: 24,
-    backgroundColor: colors.backgroundGray,
+    width: 120,
+    height: 120,
+    borderRadius: 28,
+    backgroundColor: '#FFFFFF',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: spacing.md,
+    marginBottom: spacing.lg,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
   },
   logoEmoji: {
-    fontSize: 64,
+    fontSize: 72,
   },
   logoText: {
-    fontSize: 40,
+    fontSize: 48,
     fontWeight: typography.fontWeight.bold,
-    color: colors.text,
+    color: '#000000',
   },
   tagline: {
-    fontSize: typography.fontSize.xl,
+    fontSize: typography.fontSize.lg,
     fontWeight: typography.fontWeight.medium,
-    color: colors.textSecondary,
+    color: '#666666',
     textAlign: 'center',
   },
   bottom: {
@@ -89,10 +94,10 @@ const styles = StyleSheet.create({
   },
   signInText: {
     fontSize: typography.fontSize.sm,
-    color: colors.textSecondary,
+    color: '#666666',
   },
   signInLink: {
-    color: colors.text,
+    color: '#000000',
     fontWeight: typography.fontWeight.semibold,
   },
   homeIndicator: {
