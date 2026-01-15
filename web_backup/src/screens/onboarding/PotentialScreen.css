@@ -1,0 +1,47 @@
+.potential-chart-card {
+  background-color: #f9f9f9;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-header {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: var(--spacing-xl);
+}
+
+.chart-svg-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: var(--spacing-lg);
+}
+
+.potential-chart {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--spacing-md);
+  margin-top: var(--spacing-sm);
+}
+
+.chart-labels span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-gray);
+}
+
+.chart-description {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.5;
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}

@@ -1,0 +1,7 @@
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+  flex: 1;
+}

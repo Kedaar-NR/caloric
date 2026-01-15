@@ -1,0 +1,14 @@
+.weight-display-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.goal-type {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-black);
+  margin-bottom: var(--spacing-md);
+}

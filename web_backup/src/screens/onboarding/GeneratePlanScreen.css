@@ -1,0 +1,42 @@
+.heart-illustration {
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-xl) 0;
+}
+
+.circle-bg {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, #fdf2f2 0%, #f2f2fd 100%);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.heart-icon {
+  font-size: 24px;
+  position: absolute;
+  top: 30%;
+}
+
+.hand-icon {
+  font-size: 80px;
+  margin-top: 20px;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.text-center {
+  text-align: center;
+}

@@ -1,0 +1,62 @@
+.notification-mockup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.mockup-card {
+  background-color: #d1d1d6;
+  border-radius: 14px;
+  width: 270px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.mockup-header {
+  padding: 20px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 600;
+  color: black;
+  line-height: 1.3;
+}
+
+.mockup-actions {
+  display: flex;
+  border-top: 0.5px solid #8e8e93;
+}
+
+.mockup-btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 17px;
+  color: #007aff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.mockup-btn.primary {
+  font-weight: 600;
+  border-left: 0.5px solid #8e8e93;
+}
+
+.hand-pointer {
+  position: absolute;
+  bottom: 20%;
+  right: 25%;
+  font-size: 40px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.text-center {
+  text-align: center;
+}

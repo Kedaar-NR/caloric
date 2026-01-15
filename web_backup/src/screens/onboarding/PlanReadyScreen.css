@@ -1,0 +1,101 @@
+.success-icon {
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.goal-summary {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: var(--spacing-lg);
+}
+
+.goal-badge {
+  display: inline-block;
+  background-color: #f2f2fd;
+  padding: 8px 20px;
+  border-radius: 20px;
+  margin-top: var(--spacing-sm);
+  font-weight: 700;
+}
+
+.recommendation-section {
+  margin-top: var(--spacing-xl);
+}
+
+.recommendation-section h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.recommendation-section p {
+  font-size: 14px;
+  color: var(--text-gray);
+  margin-bottom: var(--spacing-xl);
+}
+
+.targets-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+}
+
+.target-card {
+  background-color: white;
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.target-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  align-self: flex-start;
+  margin-bottom: var(--spacing-md);
+}
+
+.target-label {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.target-visual {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.target-visual svg {
+  transform: rotate(-90deg);
+}
+
+.target-value {
+  position: absolute;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.target-value span {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.edit-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}

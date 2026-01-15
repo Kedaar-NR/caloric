@@ -1,0 +1,19 @@
+.birthday-pickers {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex: 1;
+  align-items: center;
+  margin-top: var(--spacing-xl);
+}
+
+.birthday-pickers .scroll-picker-container {
+  flex: 1;
+}
+
+.birthday-pickers .scroll-picker-item {
+  font-size: 18px;
+}
+
+.birthday-pickers .scroll-picker-item.selected {
+  font-size: 20px;
+}

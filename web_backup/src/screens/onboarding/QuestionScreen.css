@@ -1,0 +1,13 @@
+.question-content {
+  padding: var(--spacing-lg);
+  flex-grow: 1;
+}
+
+.options-container {
+  margin-top: var(--spacing-xl);
+}
+
+.bottom-action {
+  padding: var(--spacing-lg);
+  background-color: var(--primary-white);
+}

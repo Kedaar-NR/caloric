@@ -1,0 +1,48 @@
+.unit-toggle-container {
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-xl) 0;
+}
+
+.unit-toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.unit-option {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.unit-option.active {
+  color: var(--primary-black);
+}
+
+.toggle-switch {
+  width: 60px;
+  height: 32px;
+  background-color: #e5e5e5;
+  border-radius: 16px;
+  position: relative;
+  cursor: pointer;
+  padding: 2px;
+}
+
+.toggle-handle {
+  width: 28px;
+  height: 28px;
+  background-color: var(--primary-white);
+  border-radius: 50%;
+  position: absolute;
+  left: 2px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-handle.right {
+  transform: translateX(28px);
+}

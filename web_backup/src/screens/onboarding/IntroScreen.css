@@ -1,0 +1,83 @@
+.intro-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--primary-white);
+  padding: var(--spacing-xl) var(--spacing-lg);
+}
+
+.intro-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.intro-image-container {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-mockup {
+  width: 280px;
+  height: 500px;
+  background-color: #000;
+  border-radius: 40px;
+  border: 8px solid #333;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.mockup-header {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.mockup-card {
+  background-color: white;
+  border-radius: 20px;
+  padding: 15px;
+  color: black;
+}
+
+.mockup-food {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.mockup-macros {
+  display: flex;
+  gap: 5px;
+}
+
+.macro-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.orange { background-color: var(--accent-orange); }
+.red { background-color: var(--accent-red); }
+.blue { background-color: var(--accent-blue); }
+
+.intro-text {
+  text-align: center;
+}
+
+.signin-link {
+  margin-top: var(--spacing-lg);
+  font-size: 14px;
+  color: var(--text-gray);
+}
+
+.signin-link strong {
+  color: var(--primary-black);
+  cursor: pointer;
+}

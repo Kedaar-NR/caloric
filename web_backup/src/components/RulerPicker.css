@@ -1,0 +1,77 @@
+.ruler-picker-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin: var(--spacing-xl) 0;
+}
+
+.ruler-value {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: var(--spacing-xl);
+  color: var(--primary-black);
+}
+
+.ruler-unit {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-gray);
+}
+
+.ruler-picker {
+  width: 100%;
+  height: 100px;
+  overflow-x: scroll;
+  position: relative;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.ruler-picker::-webkit-scrollbar {
+  display: none;
+}
+
+.ruler-content {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+.ruler-spacer {
+  min-width: 50%;
+}
+
+.ruler-tick {
+  min-width: 10px;
+  height: 20px;
+  border-left: 1px solid #ddd;
+  position: relative;
+}
+
+.ruler-tick.major {
+  height: 40px;
+  border-left: 2px solid #999;
+}
+
+.tick-label {
+  position: absolute;
+  top: -25px;
+  left: -10px;
+  font-size: 14px;
+  color: #999;
+  font-weight: 600;
+}
+
+.ruler-pointer {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 60px;
+  background-color: var(--primary-black);
+  border-radius: 2px;
+  z-index: 10;
+}

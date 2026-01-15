@@ -1,0 +1,38 @@
+.referral-input-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-wrapper {
+  width: 100%;
+  background-color: #f9f9f9;
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm);
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.input-wrapper input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: var(--spacing-md);
+  font-size: 16px;
+  outline: none;
+}
+
+.submit-btn {
+  background-color: #ccc;
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 0 var(--spacing-lg);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-btn:not(:disabled) {
+  background-color: var(--primary-black);
+}

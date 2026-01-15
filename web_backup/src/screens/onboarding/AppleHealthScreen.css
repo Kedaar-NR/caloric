@@ -1,0 +1,84 @@
+.sync-illustration {
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-xl) 0;
+  flex: 1;
+}
+
+.illustration-container {
+  position: relative;
+  width: 300px;
+  height: 250px;
+  background-color: #f9f9f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.central-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.health-icon {
+  width: 80px;
+  height: 80px;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.calai-icon {
+  width: 80px;
+  height: 80px;
+  background-color: var(--primary-black);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sync-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text-gray);
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+  background-color: var(--text-gray);
+  border-radius: 50%;
+  margin: 2px 0;
+}
+
+.floating-item {
+  position: absolute;
+  background-color: white;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.walking { top: 20%; left: 0; }
+.running { top: 40%; left: -10%; }
+.yoga { top: 30%; right: 0; }
+.sleep { top: 50%; right: -10%; }
+
+.skip-button {
+  width: 100%;
+  padding: var(--spacing-md);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-gray);
+  margin-top: var(--spacing-sm);
+}
